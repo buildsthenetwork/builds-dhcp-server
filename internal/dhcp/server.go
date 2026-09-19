@@ -25,6 +25,7 @@ func BindServer() {
 	for {
 		// Read data sent by client
 		n, clientAddr, err := conn.ReadFromUDP(buffer) // is this blocking?
+
 		if err != nil {
 			fmt.Println("Error reading data:", err)
 			continue

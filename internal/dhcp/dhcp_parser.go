@@ -3,6 +3,8 @@ package dhcp
 import (
 	"encoding/binary"
 	"fmt"
+
+	"github.com/buildsthenetwork/builds-dhcp-server/internal/inet"
 )
 
 /*
@@ -71,23 +73,23 @@ type Message struct {
 	OPTIONS      []byte
 }
 
-func (msg *Message) Print() {
-	fmt.Printf("OP: %d", msg.OP)
-	fmt.Println(msg.HTYPE)
-	fmt.Println(msg.HLEN)
-	fmt.Println(msg.HOPS)
-	fmt.Println(msg.XID)
-	fmt.Println(msg.SECS)
-	fmt.Println(msg.FLAGS)
-	fmt.Println(msg.CIADDR)
-	fmt.Println(msg.YIADDR)
-	fmt.Println(msg.SIADDR)
-	fmt.Println(msg.GIADDR)
-	fmt.Println(msg.CHADDR)
-	fmt.Println(msg.SNAME)
-	fmt.Println(msg.FILE)
-	fmt.Println(msg.MAGIC_COOKIE)
-	fmt.Println(msg.OPTIONS)
+func (m *Message) Print() {
+	fmt.Printf("OP: %d 0x%x\n", m.OP, m.OP)
+	fmt.Printf("HTYPE: %d 0x%x\n", m.HTYPE, m.HTYPE)
+	fmt.Printf("HLEN: %d 0x%x\n", m.HLEN, m.HLEN)
+	fmt.Printf("HOPS: %d 0x%x\n", m.HOPS, m.HOPS)
+	fmt.Printf("XID: %d 0x%x\n", m.XID, m.XID)
+	fmt.Printf("SECS: %d 0x%x\n", m.SECS, m.SECS)
+	fmt.Printf("FLAGS: %d 0x%x\n", m.FLAGS, m.FLAGS)
+	fmt.Printf("CIADDR: %s\n", inet.Int_to_addr(m.CIADDR))
+	fmt.Printf("YIADDR: %s\n", inet.Int_to_addr(m.YIADDR))
+	fmt.Printf("SIADDR: %s\n", inet.Int_to_addr(m.SIADDR))
+	fmt.Printf("GIADDR: %s\n", inet.Int_to_addr(m.GIADDR))
+	fmt.Println(m.CHADDR)
+	fmt.Println(m.SNAME)
+	fmt.Println(m.FILE)
+	fmt.Println(m.MAGIC_COOKIE)
+	fmt.Println(m.OPTIONS)
 
 }
 
@@ -102,6 +104,15 @@ func ParseMessage(recv []byte) Message {
 	msg.XID = binary.BigEndian.Uint32(recv[4:8])
 	msg.SECS = binary.BigEndian.Uint16(recv[8:10])
 	msg.FLAGS = binary.BigEndian.Uint16(recv[10:12])
+	msg.CIADDR = binary.BigEndian.Uint32(recv[12:16])
+	msg.YIADDR = binary.BigEndian.Uint32(recv[16:20])
+	msg.SIADDR = binary.BigEndian.Uint32(recv[20:24])
+	msg.GIADDR = binary.BigEndian.Uint32(recv[24:28])
+	copy(msg.CHADDR[:], recv[28:44]) // TODO copy works, but probably not what we want
+	copy(msg.SNAME[:], recv[44:108])
+	copy(msg.FILE[:], recv[108:236])
+	copy(msg.MAGIC_COOKIE[:], recv[236:240])
+	msg.OPTIONS = recv[240:] // This might be a copy by instance, not value
 
 	return msg
 }
