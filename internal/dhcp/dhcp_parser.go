@@ -1,6 +1,9 @@
 package dhcp
 
-import "fmt"
+import (
+	"encoding/binary"
+	"fmt"
+)
 
 /*
 
@@ -69,7 +72,7 @@ type Message struct {
 }
 
 func (msg *Message) Print() {
-	fmt.Println(msg.OP)
+	fmt.Printf("OP: %d", msg.OP)
 	fmt.Println(msg.HTYPE)
 	fmt.Println(msg.HLEN)
 	fmt.Println(msg.HOPS)
@@ -86,4 +89,19 @@ func (msg *Message) Print() {
 	fmt.Println(msg.MAGIC_COOKIE)
 	fmt.Println(msg.OPTIONS)
 
+}
+
+func ParseMessage(recv []byte) Message {
+
+	var msg Message
+
+	msg.OP = recv[0]
+	msg.HTYPE = recv[1]
+	msg.HLEN = recv[2]
+	msg.HOPS = recv[3]
+	msg.XID = binary.BigEndian.Uint32(recv[4:8])
+	msg.SECS = binary.BigEndian.Uint16(recv[8:10])
+	msg.FLAGS = binary.BigEndian.Uint16(recv[10:12])
+
+	return msg
 }
