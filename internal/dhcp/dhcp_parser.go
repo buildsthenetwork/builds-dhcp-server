@@ -30,7 +30,7 @@ The first four octets of the 'options' field of the DHCP message contain
 the (decimal) values of 99, 130, 83 annd 99, respectively (this is the same
 magic cookie as defined in RFC 1497)
 
-DHCP message types are Optoin 53
+DHCP message types are Option 53
 DHCPDISCOVER (1) - Client broadcast to locate available servers.
 DHCPOFFER - Server to client in response to DHCPDISCOVER with offer of config parameters.
 DHCPREQUEST - Client message to servers either
