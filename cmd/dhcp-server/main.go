@@ -12,4 +12,6 @@ func main() {
 	fmt.Println(addr)
 	iaddr := inet.Addr_to_int("192.168.10.1")
 	fmt.Println(iaddr)
+	addr2 := inet.Int_to_addr(iaddr)
+	fmt.Println(addr2)
 }

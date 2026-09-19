@@ -43,7 +43,7 @@ func Addr_to_int(addr string) uint32 {
 	octet2 = octet2 << 16
 	octet3 = octet3 << 8
 
-	iaddr := octet1 & octet2 & octet3 & octet4
+	iaddr := octet1 + octet2 + octet3 + octet4
 
 	return uint32(iaddr)
 
