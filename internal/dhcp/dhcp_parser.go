@@ -38,7 +38,7 @@ magic cookie as defined in RFC 1497)
 DHCP message types are Option 53
 DHCPDISCOVER (1) - Client broadcast to locate available servers.
 DHCPOFFER - Server to client in response to DHCPDISCOVER with offer of config parameters.
-DHCPREQUEST - Client message to servers either
+DHCPREQUEST (3) - Client message to servers either
 			(a) requesting offered parameters from one server, and implicitly declining offers from all others
 			(b) confirming correctness of previously allocated address affter e.g. system reboot
 			(c) extending the lease on a particular network address
@@ -74,6 +74,8 @@ type Message struct {
 }
 
 func (m *Message) Print() {
+	fmt.Println("==========PRINTING MESSAGE===========")
+
 	fmt.Printf("OP: %d 0x%x\n", m.OP, m.OP)
 	fmt.Printf("HTYPE: %d 0x%x\n", m.HTYPE, m.HTYPE)
 	fmt.Printf("HLEN: %d 0x%x\n", m.HLEN, m.HLEN)
@@ -90,9 +92,13 @@ func (m *Message) Print() {
 	fmt.Println(m.FILE)
 	fmt.Println(m.MAGIC_COOKIE)
 	fmt.Println(m.OPTIONS)
-
+	fmt.Println("==========END MESSAGE===========")
 }
 
+// TODO
+// Need error handling for this.
+// If msg length < 240, there's a problem
+// If magic cookie is not correct, there's a problem
 func ParseMessage(recv []byte) Message {
 
 	var msg Message

@@ -31,9 +31,12 @@ func BindServer() {
 			continue
 		}
 
-		message := buffer[:n] // is n the length?
+		recv := buffer[:n] // is n the length?
 		fmt.Printf("Recieved message from %s...\n", clientAddr)
-		fmt.Println(message)
+		//fmt.Println(recv)
+
+		message := ParseMessage(recv)
+		message.Print()
 	}
 
 }
