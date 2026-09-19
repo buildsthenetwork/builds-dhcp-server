@@ -58,9 +58,14 @@ type Message struct {
 	SIADDR uint32
 	GIADDR uint32
 	// chaddr 16 octets (128 bits)
+	CHADDR [16]byte
 	// sname 64 octets (512 bits)
+	SNAME [64]byte
 	// file 128 octets (1024 bits)
+	FILE [128]byte
 	// options (variable number of bits)
+	MAGIC_COOKIE [4]byte
+	OPTIONS      []byte
 }
 
 func (msg *Message) Print() {
@@ -75,4 +80,10 @@ func (msg *Message) Print() {
 	fmt.Println(msg.YIADDR)
 	fmt.Println(msg.SIADDR)
 	fmt.Println(msg.GIADDR)
+	fmt.Println(msg.CHADDR)
+	fmt.Println(msg.SNAME)
+	fmt.Println(msg.FILE)
+	fmt.Println(msg.MAGIC_COOKIE)
+	fmt.Println(msg.OPTIONS)
+
 }

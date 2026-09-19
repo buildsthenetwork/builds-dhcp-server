@@ -23,6 +23,11 @@ func main() {
 	msg.YIADDR = uint32(0)
 	msg.SIADDR = uint32(0) // returned by server in DHCPOFFER and DHCPACK
 	msg.GIADDR = uint32(0) // Relay Agent IP
+	msg.CHADDR = [16]byte{0xaa, 0xaa, 0xaa, 0xbb, 0xbb, 0xbb}
+	msg.SNAME = [64]byte{}
+	msg.FILE = [128]byte{}
+	msg.MAGIC_COOKIE = [4]byte{99, 130, 83, 99}
+	msg.OPTIONS = []byte{}
 
 	msg.Print()
 
