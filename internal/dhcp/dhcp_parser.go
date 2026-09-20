@@ -79,8 +79,8 @@ Prints out a message to terminal.
 */
 func (m *Message) Print() {
 	fmt.Println("==========PRINTING MESSAGE===========")
-	fmt.Printf("OP: %d | 0x%x\n", m.Opcode, m.Opcode)
-	fmt.Printf("HTYPE: %d | 0x%x\n", m.HType, m.HType)
+	fmt.Printf("OP: %s\n", parseOpcode(m.Opcode))
+	fmt.Printf("HTYPE: %s\n", parseHType(m.HType))
 	fmt.Printf("HLEN: %d | 0x%x\n", m.HLen, m.HLen)
 	fmt.Printf("HOPS: %d | 0x%x\n", m.Hops, m.Hops)
 	fmt.Printf("XID: %d | 0x%x\n", m.Xid, m.Xid)
@@ -130,6 +130,38 @@ func GenerateMessage(recv []byte) Message {
 	return msg
 }
 
-func ParseOpcode() {
+func parseOpcode(op uint8) string { // eventually string, err
+	switch op {
+	case 1:
+		return "BOOTREQUEST (1)"
+	case 2:
+		return "BOOTREPLY (2)"
+	default:
+		return "UNKNOWN"
+	}
+}
 
+func parseHType(htype uint8) string {
+	switch htype {
+	case 1:
+		return "Ethernet (1)"
+	case 2:
+		return "Experimental Ethernet (2)"
+	case 3:
+		return "Amateur Radio AX.25 (3)"
+	case 4:
+		return "Proteon ProNET Token Ring (4)"
+	case 5:
+		return "Chaos (5)"
+	case 6:
+		return "IEEE 802 Networks (6)"
+	case 7:
+		return "ARCNET (7)"
+	case 8:
+		return "Hyperchannel (8)"
+	case 9:
+		return "Lanstar (9)"
+	default:
+		return "UNKNOWN - (" + string(htype) + ")"
+	}
 }
