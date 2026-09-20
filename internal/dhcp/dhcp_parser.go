@@ -3,8 +3,8 @@ package dhcp
 import (
 	"encoding/binary"
 	"fmt"
-
-	"github.com/buildsthenetwork/builds-dhcp-server/internal/inet"
+	"net"
+	"net/netip"
 )
 
 /*
@@ -58,10 +58,10 @@ type Message struct {
 	XID    uint32
 	SECS   uint16
 	FLAGS  uint16
-	CIADDR uint32
-	YIADDR uint32
-	SIADDR uint32
-	GIADDR uint32
+	CIADDR [4]byte
+	YIADDR [4]byte
+	SIADDR [4]byte
+	GIADDR [4]byte
 	// chaddr 16 octets (128 bits)
 	CHADDR [16]byte
 	// sname 64 octets (512 bits)
@@ -86,11 +86,13 @@ func (m *Message) Print() {
 	fmt.Printf("XID: %d | 0x%x\n", m.XID, m.XID)
 	fmt.Printf("SECS: %d | 0x%x\n", m.SECS, m.SECS)
 	fmt.Printf("FLAGS: %d | 0x%x\n", m.FLAGS, m.FLAGS)
-	fmt.Printf("CIADDR: %s\n", inet.Int_to_addr(m.CIADDR))
-	fmt.Printf("YIADDR: %s\n", inet.Int_to_addr(m.YIADDR))
-	fmt.Printf("SIADDR: %s\n", inet.Int_to_addr(m.SIADDR))
-	fmt.Printf("GIADDR: %s\n", inet.Int_to_addr(m.GIADDR))
-	fmt.Println(m.CHADDR)
+	fmt.Printf("CIADDR: %s\n", netip.AddrFrom4(m.CIADDR))
+	fmt.Printf("YIADDR: %s\n", netip.AddrFrom4(m.YIADDR))
+	fmt.Printf("SIADDR: %s\n", netip.AddrFrom4(m.SIADDR))
+	fmt.Printf("GIADDR: %s\n", netip.AddrFrom4(m.GIADDR))
+	//fmt.Println(m.CHADDR)
+	mac := net.HardwareAddr(m.CHADDR[:m.HLEN])
+	fmt.Printf("MAC: %s\n", mac.String())
 	fmt.Println(m.SNAME)
 	fmt.Println(m.FILE)
 	fmt.Println(m.MAGIC_COOKIE)
@@ -113,10 +115,12 @@ func StoreMessage(recv []byte) Message {
 	msg.XID = binary.BigEndian.Uint32(recv[4:8])
 	msg.SECS = binary.BigEndian.Uint16(recv[8:10])
 	msg.FLAGS = binary.BigEndian.Uint16(recv[10:12])
-	msg.CIADDR = binary.BigEndian.Uint32(recv[12:16])
-	msg.YIADDR = binary.BigEndian.Uint32(recv[16:20])
-	msg.SIADDR = binary.BigEndian.Uint32(recv[20:24])
-	msg.GIADDR = binary.BigEndian.Uint32(recv[24:28])
+	// msg.CIADDR = binary.BigEndian.Uint32(recv[12:16])
+	copy(msg.CIADDR[:], recv[12:16])
+	copy(msg.YIADDR[:], recv[16:20])
+	copy(msg.SIADDR[:], recv[20:24])
+	copy(msg.GIADDR[:], recv[24:28])
+
 	copy(msg.CHADDR[:], recv[28:44]) // TODO copy works, but probably not what we want
 	copy(msg.SNAME[:], recv[44:108])
 	copy(msg.FILE[:], recv[108:236])
