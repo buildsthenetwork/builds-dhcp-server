@@ -51,26 +51,26 @@ DHCPINFORM - Client to server, asking only for local config paramters. Client ha
 */
 
 type Message struct {
-	OP     uint8
-	HTYPE  uint8
-	HLEN   uint8
-	HOPS   uint8
-	XID    uint32
-	SECS   uint16
-	FLAGS  uint16
-	CIADDR [4]byte
-	YIADDR [4]byte
-	SIADDR [4]byte
-	GIADDR [4]byte
+	Opcode uint8
+	HType  uint8
+	HLen   uint8
+	Hops   uint8
+	Xid    uint32
+	Secs   uint16
+	Flags  uint16
+	CIAddr [4]byte
+	YIAddr [4]byte
+	SIAddr [4]byte
+	GIAddr [4]byte
 	// chaddr 16 octets (128 bits)
-	CHADDR [16]byte
+	CHAddr [16]byte
 	// sname 64 octets (512 bits)
-	SNAME [64]byte
+	Sname [64]byte
 	// file 128 octets (1024 bits)
-	FILE [128]byte
+	File [128]byte
 	// options (variable number of bits)
-	MAGIC_COOKIE [4]byte
-	OPTIONS      []byte
+	MagicCookie [4]byte
+	Options     []byte
 }
 
 /*
@@ -79,24 +79,24 @@ Prints out a message to terminal.
 */
 func (m *Message) Print() {
 	fmt.Println("==========PRINTING MESSAGE===========")
-	fmt.Printf("OP: %d | 0x%x\n", m.OP, m.OP)
-	fmt.Printf("HTYPE: %d | 0x%x\n", m.HTYPE, m.HTYPE)
-	fmt.Printf("HLEN: %d | 0x%x\n", m.HLEN, m.HLEN)
-	fmt.Printf("HOPS: %d | 0x%x\n", m.HOPS, m.HOPS)
-	fmt.Printf("XID: %d | 0x%x\n", m.XID, m.XID)
-	fmt.Printf("SECS: %d | 0x%x\n", m.SECS, m.SECS)
-	fmt.Printf("FLAGS: %d | 0x%x\n", m.FLAGS, m.FLAGS)
-	fmt.Printf("CIADDR: %s\n", netip.AddrFrom4(m.CIADDR))
-	fmt.Printf("YIADDR: %s\n", netip.AddrFrom4(m.YIADDR))
-	fmt.Printf("SIADDR: %s\n", netip.AddrFrom4(m.SIADDR))
-	fmt.Printf("GIADDR: %s\n", netip.AddrFrom4(m.GIADDR))
+	fmt.Printf("OP: %d | 0x%x\n", m.Opcode, m.Opcode)
+	fmt.Printf("HTYPE: %d | 0x%x\n", m.HType, m.HType)
+	fmt.Printf("HLEN: %d | 0x%x\n", m.HLen, m.HLen)
+	fmt.Printf("HOPS: %d | 0x%x\n", m.Hops, m.Hops)
+	fmt.Printf("XID: %d | 0x%x\n", m.Xid, m.Xid)
+	fmt.Printf("SECS: %d | 0x%x\n", m.Secs, m.Secs)
+	fmt.Printf("FLAGS: %d | 0x%x\n", m.Flags, m.Flags)
+	fmt.Printf("CIADDR: %s\n", netip.AddrFrom4(m.CIAddr))
+	fmt.Printf("YIADDR: %s\n", netip.AddrFrom4(m.YIAddr))
+	fmt.Printf("SIADDR: %s\n", netip.AddrFrom4(m.SIAddr))
+	fmt.Printf("GIADDR: %s\n", netip.AddrFrom4(m.GIAddr))
 	//fmt.Println(m.CHADDR)
-	mac := net.HardwareAddr(m.CHADDR[:m.HLEN])
+	mac := net.HardwareAddr(m.CHAddr[:m.HLen])
 	fmt.Printf("MAC: %s\n", mac.String())
-	fmt.Println(m.SNAME)
-	fmt.Println(m.FILE)
-	fmt.Println(m.MAGIC_COOKIE)
-	fmt.Println(m.OPTIONS)
+	fmt.Println(m.Sname)
+	fmt.Println(m.File)
+	fmt.Println(m.MagicCookie)
+	fmt.Println(m.Options)
 	fmt.Println("==========END MESSAGE===========")
 }
 
@@ -104,28 +104,32 @@ func (m *Message) Print() {
 // Need error handling for this.
 // If msg length < 240, there's a problem
 // If magic cookie is not correct, there's a problem
-func StoreMessage(recv []byte) Message {
+func GenerateMessage(recv []byte) Message {
 
 	var msg Message
 
-	msg.OP = recv[0]
-	msg.HTYPE = recv[1]
-	msg.HLEN = recv[2]
-	msg.HOPS = recv[3]
-	msg.XID = binary.BigEndian.Uint32(recv[4:8])
-	msg.SECS = binary.BigEndian.Uint16(recv[8:10])
-	msg.FLAGS = binary.BigEndian.Uint16(recv[10:12])
+	msg.Opcode = recv[0]
+	msg.HType = recv[1]
+	msg.HLen = recv[2]
+	msg.Hops = recv[3]
+	msg.Xid = binary.BigEndian.Uint32(recv[4:8])
+	msg.Secs = binary.BigEndian.Uint16(recv[8:10])
+	msg.Flags = binary.BigEndian.Uint16(recv[10:12])
 	// msg.CIADDR = binary.BigEndian.Uint32(recv[12:16])
-	copy(msg.CIADDR[:], recv[12:16])
-	copy(msg.YIADDR[:], recv[16:20])
-	copy(msg.SIADDR[:], recv[20:24])
-	copy(msg.GIADDR[:], recv[24:28])
+	copy(msg.CIAddr[:], recv[12:16])
+	copy(msg.YIAddr[:], recv[16:20])
+	copy(msg.SIAddr[:], recv[20:24])
+	copy(msg.GIAddr[:], recv[24:28])
 
-	copy(msg.CHADDR[:], recv[28:44]) // TODO copy works, but probably not what we want
-	copy(msg.SNAME[:], recv[44:108])
-	copy(msg.FILE[:], recv[108:236])
-	copy(msg.MAGIC_COOKIE[:], recv[236:240])
-	msg.OPTIONS = recv[240:] // This might be a copy by instance, not value
+	copy(msg.CHAddr[:], recv[28:44]) // TODO copy works, but probably not what we want
+	copy(msg.Sname[:], recv[44:108])
+	copy(msg.File[:], recv[108:236])
+	copy(msg.MagicCookie[:], recv[236:240])
+	msg.Options = recv[240:] // This might be a copy by instance, not value
 
 	return msg
+}
+
+func ParseOpcode() {
+
 }
