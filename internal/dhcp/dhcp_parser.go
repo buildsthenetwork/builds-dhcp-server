@@ -3,8 +3,9 @@ package dhcp
 import (
 	"encoding/binary"
 	"fmt"
+	"net"
 
-	"github.com/buildsthenetwork/builds-dhcp-server/internal/inet"
+	"github.com/buildsthenetwork/builds-dhcp-server/internal/network"
 )
 
 /*
@@ -86,11 +87,13 @@ func (m *Message) Print() {
 	fmt.Printf("XID: %d | 0x%x\n", m.XID, m.XID)
 	fmt.Printf("SECS: %d | 0x%x\n", m.SECS, m.SECS)
 	fmt.Printf("FLAGS: %d | 0x%x\n", m.FLAGS, m.FLAGS)
-	fmt.Printf("CIADDR: %s\n", inet.Int_to_addr(m.CIADDR))
-	fmt.Printf("YIADDR: %s\n", inet.Int_to_addr(m.YIADDR))
-	fmt.Printf("SIADDR: %s\n", inet.Int_to_addr(m.SIADDR))
-	fmt.Printf("GIADDR: %s\n", inet.Int_to_addr(m.GIADDR))
-	fmt.Println(m.CHADDR)
+	fmt.Printf("CIADDR: %s\n", network.Int_to_addr(m.CIADDR))
+	fmt.Printf("YIADDR: %s\n", network.Int_to_addr(m.YIADDR))
+	fmt.Printf("SIADDR: %s\n", network.Int_to_addr(m.SIADDR))
+	fmt.Printf("GIADDR: %s\n", network.Int_to_addr(m.GIADDR))
+	//fmt.Println(m.CHADDR)
+	mac := net.HardwareAddr(m.CHADDR[:m.HLEN])
+	fmt.Printf("MAC: %s\n", mac.String())
 	fmt.Println(m.SNAME)
 	fmt.Println(m.FILE)
 	fmt.Println(m.MAGIC_COOKIE)
