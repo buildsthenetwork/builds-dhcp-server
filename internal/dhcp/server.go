@@ -35,8 +35,12 @@ func BindServer() {
 		fmt.Printf("Recieved message from %s...\n", clientAddr)
 		//fmt.Println(recv)
 
-		message := ParseMessage(recv)
-		message.Print()
+		ParseMessage(recv)
 	}
 
+}
+
+func ParseMessage(recv []byte) {
+	msg := StoreMessage(recv)
+	msg.Print()
 }

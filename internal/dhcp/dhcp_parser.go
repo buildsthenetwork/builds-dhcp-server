@@ -73,16 +73,19 @@ type Message struct {
 	OPTIONS      []byte
 }
 
+/*
+*
+Prints out a message to terminal.
+*/
 func (m *Message) Print() {
 	fmt.Println("==========PRINTING MESSAGE===========")
-
-	fmt.Printf("OP: %d 0x%x\n", m.OP, m.OP)
-	fmt.Printf("HTYPE: %d 0x%x\n", m.HTYPE, m.HTYPE)
-	fmt.Printf("HLEN: %d 0x%x\n", m.HLEN, m.HLEN)
-	fmt.Printf("HOPS: %d 0x%x\n", m.HOPS, m.HOPS)
-	fmt.Printf("XID: %d 0x%x\n", m.XID, m.XID)
-	fmt.Printf("SECS: %d 0x%x\n", m.SECS, m.SECS)
-	fmt.Printf("FLAGS: %d 0x%x\n", m.FLAGS, m.FLAGS)
+	fmt.Printf("OP: %d | 0x%x\n", m.OP, m.OP)
+	fmt.Printf("HTYPE: %d | 0x%x\n", m.HTYPE, m.HTYPE)
+	fmt.Printf("HLEN: %d | 0x%x\n", m.HLEN, m.HLEN)
+	fmt.Printf("HOPS: %d | 0x%x\n", m.HOPS, m.HOPS)
+	fmt.Printf("XID: %d | 0x%x\n", m.XID, m.XID)
+	fmt.Printf("SECS: %d | 0x%x\n", m.SECS, m.SECS)
+	fmt.Printf("FLAGS: %d | 0x%x\n", m.FLAGS, m.FLAGS)
 	fmt.Printf("CIADDR: %s\n", inet.Int_to_addr(m.CIADDR))
 	fmt.Printf("YIADDR: %s\n", inet.Int_to_addr(m.YIADDR))
 	fmt.Printf("SIADDR: %s\n", inet.Int_to_addr(m.SIADDR))
@@ -99,7 +102,7 @@ func (m *Message) Print() {
 // Need error handling for this.
 // If msg length < 240, there's a problem
 // If magic cookie is not correct, there's a problem
-func ParseMessage(recv []byte) Message {
+func StoreMessage(recv []byte) Message {
 
 	var msg Message
 
