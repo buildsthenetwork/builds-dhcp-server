@@ -1,6 +1,11 @@
 package dhcp
 
-import "fmt"
+import (
+	"encoding/binary"
+	"fmt"
+
+	"github.com/buildsthenetwork/builds-dhcp-server/internal/inet"
+)
 
 /*
 
@@ -33,7 +38,7 @@ magic cookie as defined in RFC 1497)
 DHCP message types are Option 53
 DHCPDISCOVER (1) - Client broadcast to locate available servers.
 DHCPOFFER - Server to client in response to DHCPDISCOVER with offer of config parameters.
-DHCPREQUEST - Client message to servers either
+DHCPREQUEST (3) - Client message to servers either
 			(a) requesting offered parameters from one server, and implicitly declining offers from all others
 			(b) confirming correctness of previously allocated address affter e.g. system reboot
 			(c) extending the lease on a particular network address
@@ -58,21 +63,65 @@ type Message struct {
 	SIADDR uint32
 	GIADDR uint32
 	// chaddr 16 octets (128 bits)
+	CHADDR [16]byte
 	// sname 64 octets (512 bits)
+	SNAME [64]byte
 	// file 128 octets (1024 bits)
+	FILE [128]byte
 	// options (variable number of bits)
+	MAGIC_COOKIE [4]byte
+	OPTIONS      []byte
 }
 
-func (msg *Message) Print() {
-	fmt.Println(msg.OP)
-	fmt.Println(msg.HTYPE)
-	fmt.Println(msg.HLEN)
-	fmt.Println(msg.HOPS)
-	fmt.Println(msg.XID)
-	fmt.Println(msg.SECS)
-	fmt.Println(msg.FLAGS)
-	fmt.Println(msg.CIADDR)
-	fmt.Println(msg.YIADDR)
-	fmt.Println(msg.SIADDR)
-	fmt.Println(msg.GIADDR)
+/*
+*
+Prints out a message to terminal.
+*/
+func (m *Message) Print() {
+	fmt.Println("==========PRINTING MESSAGE===========")
+	fmt.Printf("OP: %d | 0x%x\n", m.OP, m.OP)
+	fmt.Printf("HTYPE: %d | 0x%x\n", m.HTYPE, m.HTYPE)
+	fmt.Printf("HLEN: %d | 0x%x\n", m.HLEN, m.HLEN)
+	fmt.Printf("HOPS: %d | 0x%x\n", m.HOPS, m.HOPS)
+	fmt.Printf("XID: %d | 0x%x\n", m.XID, m.XID)
+	fmt.Printf("SECS: %d | 0x%x\n", m.SECS, m.SECS)
+	fmt.Printf("FLAGS: %d | 0x%x\n", m.FLAGS, m.FLAGS)
+	fmt.Printf("CIADDR: %s\n", inet.Int_to_addr(m.CIADDR))
+	fmt.Printf("YIADDR: %s\n", inet.Int_to_addr(m.YIADDR))
+	fmt.Printf("SIADDR: %s\n", inet.Int_to_addr(m.SIADDR))
+	fmt.Printf("GIADDR: %s\n", inet.Int_to_addr(m.GIADDR))
+	fmt.Println(m.CHADDR)
+	fmt.Println(m.SNAME)
+	fmt.Println(m.FILE)
+	fmt.Println(m.MAGIC_COOKIE)
+	fmt.Println(m.OPTIONS)
+	fmt.Println("==========END MESSAGE===========")
+}
+
+// TODO
+// Need error handling for this.
+// If msg length < 240, there's a problem
+// If magic cookie is not correct, there's a problem
+func StoreMessage(recv []byte) Message {
+
+	var msg Message
+
+	msg.OP = recv[0]
+	msg.HTYPE = recv[1]
+	msg.HLEN = recv[2]
+	msg.HOPS = recv[3]
+	msg.XID = binary.BigEndian.Uint32(recv[4:8])
+	msg.SECS = binary.BigEndian.Uint16(recv[8:10])
+	msg.FLAGS = binary.BigEndian.Uint16(recv[10:12])
+	msg.CIADDR = binary.BigEndian.Uint32(recv[12:16])
+	msg.YIADDR = binary.BigEndian.Uint32(recv[16:20])
+	msg.SIADDR = binary.BigEndian.Uint32(recv[20:24])
+	msg.GIADDR = binary.BigEndian.Uint32(recv[24:28])
+	copy(msg.CHADDR[:], recv[28:44]) // TODO copy works, but probably not what we want
+	copy(msg.SNAME[:], recv[44:108])
+	copy(msg.FILE[:], recv[108:236])
+	copy(msg.MAGIC_COOKIE[:], recv[236:240])
+	msg.OPTIONS = recv[240:] // This might be a copy by instance, not value
+
+	return msg
 }
