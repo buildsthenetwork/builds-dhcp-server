@@ -1,0 +1,22 @@
+[
+53 1 3 
+55 13 1 121 3 6 15 108 114 119 162 252 95 44 46 
+57 2 5 220 
+61 7 1 22 138 62 101 237 57 
+50 4 192 168 1 248 
+51 4 0 118 167 0 
+12 3 77 97 99 
+255 0 0 0 0 0 0 0 0 0 0 0
+]
+
+Human-readable
+[
+(53) DHCP Message Type - DHCPREQUEST
+(55) Parameter Request List - Options 1, 121, 3, 6, 15, 108, 114, 119, 162, 252, 95, 44, 46
+(57) Maximum DHCP Size - uint16, so 5 and 220 = 00000101 11011100 = 1500 bytes (which looks correct)
+(61) Client Identifier - will need further reading, but this is the MAC address of the device in decimal
+(50) Requested IP Address - 192.168.1.248
+(51) IP Address Lease Time - 0 118 167 0 = 00000000 01110100 10100111 00000000 = I don't want to do this math right now. It's a lot of seconds.
+(12) Host Name - Are 77, 97, and 99 ASCII characters? Why would my Ubuntu VM be requesting this?
+(255) End Option. All trailing 0s are padding options.
+]

@@ -92,11 +92,12 @@ func (m *Message) Print() {
 	fmt.Printf("GIADDR: %s\n", netip.AddrFrom4(m.GIAddr))
 	//fmt.Println(m.CHADDR)
 	//mac := net.HardwareAddr(m.CHAddr[:m.HLen])
-	fmt.Printf("MAC: %s\n", parseCHAddr(m.CHAddr[:m.HLen]))
+	fmt.Printf("CHADDR: %s\n", parseCHAddr(m.CHAddr[:m.HLen]))
 	fmt.Println(m.Sname)
 	fmt.Println(m.File)
 	fmt.Println(m.MagicCookie)
 	fmt.Println(m.Options)
+	OptionsParser(m.Options)
 	fmt.Println("==========END MESSAGE===========")
 }
 
