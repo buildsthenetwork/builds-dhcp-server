@@ -4,18 +4,77 @@ import (
 	"fmt"
 )
 
-// every option has a name and pre-defined length.
+/*
 
+Options requirements are being built according to RFC 2132.
+
+https://www.rfc-editor.org/info/rfc2132/
+
+*/
+
+// A structure to map Option codes to Option Names
 var optionNames = map[int]string{
-	0:   "Pad Option",
-	1:   "Subnet Mask",
-	12:  "Host Name",
-	50:  "Requested IP Address",
-	51:  "IP Address Lease Time",
-	53:  "DHCP Message Type",
-	55:  "Parameter Request List",
-	57:  "Maximum DHCP Size",
-	61:  "Client Identifier",
+	0:  "Pad Option",
+	1:  "Subnet Mask",
+	2:  "Time Offset",
+	3:  "Router",
+	4:  "Time Server",
+	5:  "Name Server",
+	6:  "Domain Name Server",
+	7:  "Log Server",
+	8:  "Cookie Server",
+	9:  "LPR Server", // Line Printer Servers
+	10: "Impress Server",
+	11: "Resource Location Server",
+	12: "Host Name",
+	13: "Boot File Size",
+	14: "Merit Dump File",
+	15: "Domain Name",
+	16: "Swap Server",
+	17: "Root Path",
+	18: "Extensions Path",
+	19: "IP Forwarding Enable/Disable",
+	20: "Non-Local Source Routing Enable/Disable",
+	21: "Policy Filter",
+	22: "Maximum Datagram Reassembly Size",
+	23: "Default IP Time-to-live",
+	24: "Path MTU Aging Timeout",
+	25: "Path MTU Plateau Table",
+	26: "Interface MTU",
+	27: "All Subnets are Local",
+	28: "Broadcast Address",
+	29: "Perform Mask Discovery",
+	30: "Mask Supplier",
+	31: "Perform Router Discovery",
+	32: "Router Solicitation Address",
+	33: "Static Route",
+	34: "Trailer Encapsulation",
+	35: "ARP Cache Timeout",
+	36: "Ethernet Encapsulation",
+	37: "TCP Default TTL",
+	38: "TCP Keepalive Internal",
+	39: "TCP Keepalive Garbage",
+	40: "Network Information Service Domain",
+	41: "Network Information Servers",
+	42: "Network Time Protocol Servers",
+	43: "Vendor Specific Information",
+	44: "NetBIOS over TCP/IP Name Server",
+	45: "NetBIOS over TCP/IP Datagram Distribution Server",
+	46: "NetBIOS over TCP/IP Node Type",
+	47: "NetBIOS over TCP/IP Scope",
+	48: "X Window System Font Server",
+	49: "X Window System Display Manager",
+	50: "Requested IP Address",
+	51: "IP Address Lease Time",
+
+	53: "DHCP Message Type",
+
+	55: "Parameter Request List",
+
+	57: "Maximum DHCP Size",
+
+	61: "Client Identifier",
+
 	255: "End Option",
 }
 
@@ -38,7 +97,6 @@ func (option *DHCPOption) Print() {
 }
 
 func OptionsParser(options []byte) {
-	// my first instinct is going to be: [(tag octet) (len octet) (number of items given the len)]
 	// options 0 and 255 are fixed length. I think 255 is typically the end...
 	// 128 to 254 are reserverd for site-specific options. However, I do know option 150 is Cisco TFTP
 
@@ -103,31 +161,22 @@ func option53(data []byte) {
 	msg_str := "Message Type: "
 	switch msg_type {
 	case 1:
-		//fmt.Println("DHCPDISCOVER")
 		msg_str += "DHCPDISCOVER"
 	case 2:
-		//fmt.Println("DHCPOFFER")
 		msg_str += "DHCPOFFER"
 	case 3:
-		//fmt.Println("DHCPREQUEST")
 		msg_str += "DHCPREQUEST"
 	case 4:
-		//fmt.Println("DHCPDECLINE")
 		msg_str += "DHCPDECLINE"
 	case 5:
-		//fmt.Println("DHCPACK")
 		msg_str += "DHCPACK"
 	case 6:
-		//fmt.Println("DHCPNAK")
 		msg_str += "DHCPNAK"
 	case 7:
-		//fmt.Println("DHCPRELEASE")
 		msg_str += "DHCPRELEASE"
 	case 8:
-		//fmt.Println("DHCPINFORM")
 		msg_str += "DHCPINFORM"
 	default:
-		//fmt.Println("UNKNOWN DHCP MESSAGE TYPE")
 		msg_str += "UNKNOWN DHCP MESSAGE TYPE"
 	}
 	fmt.Println(msg_str)
