@@ -111,14 +111,7 @@ func (option *DHCPOption) Print() {
 }
 
 func OptionsParser(options []byte) {
-	// options 0 and 255 are fixed length. I think 255 is typically the end...
-	// 128 to 254 are reserverd for site-specific options. However, I do know option 150 is Cisco TFTP
 
-	// 0 is the pad option
-	// 255 is the end option, all subsequent options are pad options
-
-	// Subnet Mask option
-	// If both the subnet mask and the router option are specified in a reply, the subnet mask option MUST be first.
 	dhcp_options := []DHCPOption{}
 	for i := 0; i < len(options); i++ {
 		// append
