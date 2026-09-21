@@ -66,21 +66,35 @@ var optionNames = map[int]string{
 	49: "X Window System Display Manager",
 	50: "Requested IP Address",
 	51: "IP Address Lease Time",
-
+	52: "Option Overload",
 	53: "DHCP Message Type",
-
+	54: "Server Identifier",
 	55: "Parameter Request List",
+	56: "Message",
+	57: "Maximum DHCP Message Size",
+	58: "Renewal (T1) Time Value",
+	59: "Rebinding (T2) Time Value",
+	60: "Vendor Class Identifier",
+	61: "Client-Identifier",
 
-	57: "Maximum DHCP Size",
+	64: "Network Information Service+ Domain",
+	65: "Network Information Service+ Servers",
 
-	61: "Client Identifier",
+	68: "Mobile IP Home Agent",
+	69: "Simple Mail Transport Protocol (SMTP) Server",
+	70: "Post Office Protocol (POP3) Server",
+	71: "Network News Transport Protocol (NNTP) Server",
+	72: "Default World Wide Web (WWW) Server",
+	73: "Default Finger Server",
+	74: "Default Internet Relay Chat (IRC) Server",
+	75: "StreetTalk Server",
+	76: "StreetTalk Directory Assistance (STDA) Server",
 
 	255: "End Option",
 }
 
 type DHCPOption struct {
-	code uint8
-	//name   string
+	code   uint8
 	length uint8
 	data   []byte
 }
