@@ -10,7 +10,9 @@ import (
 
 Options requirements are being built according to RFC 2132.
 
-https://www.rfc-editor.org/info/rfc2132/
+https://www.rfc-editor.org/info/rfc2132/ --- DHCP Options
+https://datatracker.ietf.org/doc/html/rfc4361 --- Node-Specific Client Identifier for DHCPv4
+https://www.rfc-editor.org/info/rfc6842/ --- Client-Identifier (61) Option in DHCP Server Replies
 
 */
 
