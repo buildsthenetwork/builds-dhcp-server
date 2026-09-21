@@ -91,8 +91,8 @@ func (m *Message) Print() {
 	fmt.Printf("SIADDR: %s\n", netip.AddrFrom4(m.SIAddr))
 	fmt.Printf("GIADDR: %s\n", netip.AddrFrom4(m.GIAddr))
 	//fmt.Println(m.CHADDR)
-	mac := net.HardwareAddr(m.CHAddr[:m.HLen])
-	fmt.Printf("MAC: %s\n", mac.String())
+	//mac := net.HardwareAddr(m.CHAddr[:m.HLen])
+	fmt.Printf("MAC: %s\n", parseCHAddr(m.CHAddr[:m.HLen]))
 	fmt.Println(m.Sname)
 	fmt.Println(m.File)
 	fmt.Println(m.MagicCookie)
@@ -164,4 +164,11 @@ func parseHType(htype uint8) string {
 	default:
 		return "UNKNOWN - (" + string(htype) + ")"
 	}
+}
+
+func parseCHAddr(haddr []byte) string {
+	mac := net.HardwareAddr(haddr)
+
+	return mac.String()
+
 }
