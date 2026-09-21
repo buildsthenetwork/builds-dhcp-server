@@ -1,7 +1,9 @@
 package dhcp
 
 import (
+	"encoding/binary"
 	"fmt"
+	"strconv"
 )
 
 /*
@@ -64,11 +66,11 @@ var optionNames = map[int]string{
 	47: "NetBIOS over TCP/IP Scope",
 	48: "X Window System Font Server",
 	49: "X Window System Display Manager",
-	50: "Requested IP Address",
+	50: "Requested IP Address", // =======================
 	51: "IP Address Lease Time",
 	52: "Option Overload",
 	53: "DHCP Message Type",
-	54: "Server Identifier",
+	54: "Server Identifier", // ===========================
 	55: "Parameter Request List",
 	56: "Message",
 	57: "Maximum DHCP Message Size",
@@ -103,12 +105,19 @@ func (option *DHCPOption) Print() {
 	fmt.Println("    ------------")
 	fmt.Printf("Option: %s (%d)\n", optionNames[int(option.code)], option.code)
 	fmt.Printf("Length: %d\n", option.length)
+
 	fmt.Print("Message Data: ")
 	fmt.Print(option.data)
 	fmt.Print("\n")
-	parseOptionData(option)
+
+	fmt.Printf("Decoded Data: %s\n", string(parseOptionData(option)))
+	//parseOptionData(option)
 	fmt.Println("    ------------")
 }
+
+/**
+At some point, this func will need to return something, in order to prepare a DHCP response.
+*/
 
 func OptionsParser(options []byte) {
 
@@ -124,6 +133,7 @@ func OptionsParser(options []byte) {
 
 		if code == 255 {
 			fmt.Println("Option 255. End Parsing!")
+			dhcp_options = append(dhcp_options, DHCPOption{code: 255, length: 0, data: []byte{}})
 			break
 		}
 
@@ -142,49 +152,63 @@ func OptionsParser(options []byte) {
 		i = end - 1
 	}
 
-	fmt.Println("-------- Options Parser --------")
-	//option := DHCPOption{code: options[0], length: options[1], data: options[2:3]}
-	//option.Print()
-	for i := 0; i < len(dhcp_options); i++ {
-		dhcp_options[i].Print()
-	}
-	fmt.Println("--------   END   Parser --------")
+	printParsedOptions(dhcp_options)
 }
 
-func parseOptionData(option *DHCPOption) {
+func printParsedOptions(options []DHCPOption) {
+	fmt.Println("-------- Options Print --------")
+	//option := DHCPOption{code: options[0], length: options[1], data: options[2:3]}
+	//option.Print()
+	for i := range options {
+		options[i].Print()
+	}
+	fmt.Println("--------   END   Print --------")
+}
+
+func parseOptionData(option *DHCPOption) string {
 
 	switch option.code {
 	case 53:
-		option53(option.data)
+		return option53(option.data)
+	case 57:
+		return strconv.Itoa((option57(option.data)))
 	default:
-		fmt.Printf("--Option %d not implemented.\n", option.code)
+		//fmt.Printf("--Option %d not implemented.\n", option.code)
+		return "Not Implemented."
 	}
 }
 
-// 53 - DHCP Message Type
+/*
+FUNCTIONS FOR OPTIONS
+*/
+
+// OPTION 53 - DHCP Message Type
 // Length is always 1
-func option53(data []byte) {
+
+var option53MessageTypes = map[int]string{
+	1: "DHCPDISCOVER",
+	2: "DHCPOFFER",
+	3: "DHCPREQUEST",
+	4: "DHCPDECLINE",
+	5: "DHCPACK",
+	6: "DHCPNAK",
+	7: "DHCPRELEASE",
+	8: "DHCPINFORM",
+}
+
+func option53(data []byte) string {
 	msg_type := data[0]
-	msg_str := "Message Type: "
-	switch msg_type {
-	case 1:
-		msg_str += "DHCPDISCOVER"
-	case 2:
-		msg_str += "DHCPOFFER"
-	case 3:
-		msg_str += "DHCPREQUEST"
-	case 4:
-		msg_str += "DHCPDECLINE"
-	case 5:
-		msg_str += "DHCPACK"
-	case 6:
-		msg_str += "DHCPNAK"
-	case 7:
-		msg_str += "DHCPRELEASE"
-	case 8:
-		msg_str += "DHCPINFORM"
-	default:
-		msg_str += "UNKNOWN DHCP MESSAGE TYPE"
-	}
-	fmt.Println(msg_str)
+	//msg_str := "Message Type: " + string(option53MessageTypes[int(msg_type)])
+
+	//fmt.Println(msg_str)
+	return string(option53MessageTypes[int(msg_type)])
+}
+
+// OPTION 57 - Maximum DHCP Message Size
+// Length is always 2
+func option57(data []byte) int {
+	size := int(binary.BigEndian.Uint16(data[0:2]))
+
+	// fmt.Println(size)
+	return size
 }

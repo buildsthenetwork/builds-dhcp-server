@@ -21,10 +21,10 @@ func BindServer() {
 	defer conn.Close()
 	fmt.Println("UDP server is listening on port 67...")
 
-	buffer := make([]byte, 1024) // I'm not positive on the size we want
+	buffer := make([]byte, 1500)
 	for {
 		// Read data sent by client
-		n, clientAddr, err := conn.ReadFromUDP(buffer) // is this blocking?
+		n, clientAddr, err := conn.ReadFromUDP(buffer)
 
 		if err != nil {
 			fmt.Println("Error reading data:", err)
