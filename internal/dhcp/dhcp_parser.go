@@ -76,7 +76,7 @@ type Message struct {
 
 /*
 *
-Prints out a message to terminal.
+Prints out a Message to terminal.
 */
 func (m *Message) Print() {
 	fmt.Println("==========PRINTING MESSAGE===========")

@@ -8,10 +8,10 @@ func TestParseDHCPDiscover(t *testing.T) {
 	packet := make([]byte, 240)
 
 	// BOOTP header
-	packet[0] = 1 // BOOTREQUEST
-	packet[1] = 1 // HTYPE ETHERNET
-	packet[2] = 6 // HLEN 6, likely a MAC Address
-	packet[3] = 0 // HOPS 0
+	packet[0] = 1
+	packet[1] = 1
+	packet[2] = 6
+	packet[3] = 0
 
 	// Transaction ID
 	copy(packet[4:8], []byte{0x12, 0x34, 0x56, 0x78})
