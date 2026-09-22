@@ -41,6 +41,6 @@ func BindServer() {
 }
 
 func ParseMessage(recv []byte) {
-	msg := GenerateMessage(recv)
+	msg := ConstructMessage(recv)
 	msg.Print()
 }

@@ -106,7 +106,7 @@ type DHCPOption struct {
 func (option *DHCPOption) Print() {
 	fmt.Printf(" - Option: %s (%d)\n", optionNames[int(option.code)], option.code)
 	fmt.Printf("	Length: %d\n", option.length)
-	fmt.Print("	Message Data: ")
+	fmt.Print("	Option Data: ")
 	fmt.Print(option.data)
 	fmt.Print("\n")
 	fmt.Printf("	Decoded Data: %s\n", string(parseOptionData(option)))
@@ -137,8 +137,8 @@ func OptionsParser(options []byte) []DHCPOption {
 		}
 
 		length := int(options[i+1])
-		start := i + 2        // inclusive
-		end := start + length // exclusive. At end of loop, i will equal the end
+		start := i                // inclusive
+		end := start + length + 2 // exclusive. At end of loop, i will equal the end
 
 		// the options[start:end] slice can potentially get messy. Look for a different way.
 		option := DHCPOption{code: code, length: uint8(length), data: options[start:end]}
@@ -194,7 +194,7 @@ var option53MessageTypes = map[int]string{
 }
 
 func option53(data []byte) string {
-	msg_type := data[0]
+	msg_type := data[2]
 	//msg_str := "Message Type: " + string(option53MessageTypes[int(msg_type)])
 
 	//fmt.Println(msg_str)
@@ -204,7 +204,7 @@ func option53(data []byte) string {
 // OPTION 57 - Maximum DHCP Message Size
 // Length is always 2
 func option57(data []byte) int {
-	size := int(binary.BigEndian.Uint16(data[0:2]))
+	size := int(binary.BigEndian.Uint16(data[2:4]))
 
 	// fmt.Println(size)
 	return size

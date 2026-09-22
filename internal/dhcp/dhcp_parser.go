@@ -108,7 +108,7 @@ func (m *Message) Print() {
 // Need error handling for this.
 // If msg length < 240, there's a problem
 // If magic cookie is not correct, there's a problem
-func GenerateMessage(recv []byte) Message {
+func ConstructMessage(recv []byte) Message {
 
 	var msg Message
 
