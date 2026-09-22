@@ -113,10 +113,6 @@ func (option *DHCPOption) Print() {
 	//parseOptionData(option)
 }
 
-/**
-At some point, this func will need to return something, in order to prepare a DHCP response.
-*/
-
 func OptionsParser(options []byte) []DHCPOption {
 
 	dhcp_options := []DHCPOption{}
@@ -171,6 +167,8 @@ func parseOptionData(option *DHCPOption) string {
 		return option53(option.data)
 	case 57:
 		return strconv.Itoa((option57(option.data)))
+	case 255:
+		return "End of Options."
 	default:
 		//fmt.Printf("--Option %d not implemented.\n", option.code)
 		return "Not Implemented."
