@@ -1,0 +1,884 @@
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 574389909 | 0x223c7e95
+SECS: 11 | 0xb
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: c2:0d:4f:99:09:a6
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 55 10 1 121 3 6 15 108 114 119 162 252 57 2 5 220 61 7 1 194 13 79 153 9 166 51 4 0 118 167 0 12 4 105 80 97 100 255 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 10
+Message Data: [1 121 3 6 15 108 114 119 162 252]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [5 220]
+Decoded Data: 1500
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 194 13 79 153 9 166]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: IP Address Lease Time (51)
+Length: 4
+Message Data: [0 118 167 0]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Host Name (12)
+Length: 4
+Message Data: [105 80 97 100]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 779185414 | 0x2e716d06
+SECS: 26 | 0x1a
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: d0:21:f9:e4:12:60
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 61 7 1 208 33 249 228 18 96 50 4 192 168 1 22 57 2 2 64 55 8 1 3 6 12 15 28 42 43 60 4 117 98 110 116 255 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 208 33 249 228 18 96]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Requested IP Address (50)
+Length: 4
+Message Data: [192 168 1 22]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [2 64]
+Decoded Data: 576
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 8
+Message Data: [1 3 6 12 15 28 42 43]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 4
+Message Data: [117 98 110 116]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 779185414 | 0x2e716d06
+SECS: 29 | 0x1d
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: d0:21:f9:e4:12:60
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 61 7 1 208 33 249 228 18 96 50 4 192 168 1 22 57 2 2 64 55 8 1 3 6 12 15 28 42 43 60 4 117 98 110 116 255 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 208 33 249 228 18 96]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Requested IP Address (50)
+Length: 4
+Message Data: [192 168 1 22]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [2 64]
+Decoded Data: 576
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 8
+Message Data: [1 3 6 12 15 28 42 43]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 4
+Message Data: [117 98 110 116]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 779185414 | 0x2e716d06
+SECS: 32 | 0x20
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: d0:21:f9:e4:12:60
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 61 7 1 208 33 249 228 18 96 50 4 192 168 1 22 57 2 2 64 55 8 1 3 6 12 15 28 42 43 60 4 117 98 110 116 255 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 208 33 249 228 18 96]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Requested IP Address (50)
+Length: 4
+Message Data: [192 168 1 22]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [2 64]
+Decoded Data: 576
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 8
+Message Data: [1 3 6 12 15 28 42 43]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 4
+Message Data: [117 98 110 116]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 818943981 | 0x30d017ed
+SECS: 46 | 0x2e
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: d0:21:f9:e4:12:60
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 61 7 1 208 33 249 228 18 96 50 4 192 168 1 22 57 2 2 64 55 8 1 3 6 12 15 28 42 43 60 4 117 98 110 116 255 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 208 33 249 228 18 96]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Requested IP Address (50)
+Length: 4
+Message Data: [192 168 1 22]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [2 64]
+Decoded Data: 576
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 8
+Message Data: [1 3 6 12 15 28 42 43]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 4
+Message Data: [117 98 110 116]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 818943981 | 0x30d017ed
+SECS: 49 | 0x31
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: d0:21:f9:e4:12:60
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 61 7 1 208 33 249 228 18 96 50 4 192 168 1 22 57 2 2 64 55 8 1 3 6 12 15 28 42 43 60 4 117 98 110 116 255 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 208 33 249 228 18 96]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Requested IP Address (50)
+Length: 4
+Message Data: [192 168 1 22]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [2 64]
+Decoded Data: 576
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 8
+Message Data: [1 3 6 12 15 28 42 43]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 4
+Message Data: [117 98 110 116]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 824184391 | 0x31200e47
+SECS: 0 | 0x0
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: 0c:dc:91:78:15:e0
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 61 7 1 12 220 145 120 21 224 57 2 5 220 60 15 97 110 100 114 111 105 100 45 100 104 99 112 45 49 49 55 11 1 3 6 15 26 28 51 58 59 43 114 255 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 12 220 145 120 21 224]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [5 220]
+Decoded Data: 1500
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 15
+Message Data: [97 110 100 114 111 105 100 45 100 104 99 112 45 49 49]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 11
+Message Data: [1 3 6 15 26 28 51 58 59 43 114]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 824184391 | 0x31200e47
+SECS: 0 | 0x0
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: 0c:dc:91:78:15:e0
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 61 7 1 12 220 145 120 21 224 57 2 5 220 60 15 97 110 100 114 111 105 100 45 100 104 99 112 45 49 49 55 11 1 3 6 15 26 28 51 58 59 43 114 255 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 12 220 145 120 21 224]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [5 220]
+Decoded Data: 1500
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 15
+Message Data: [97 110 100 114 111 105 100 45 100 104 99 112 45 49 49]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 11
+Message Data: [1 3 6 15 26 28 51 58 59 43 114]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 818943981 | 0x30d017ed
+SECS: 52 | 0x34
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: d0:21:f9:e4:12:60
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 61 7 1 208 33 249 228 18 96 50 4 192 168 1 22 57 2 2 64 55 8 1 3 6 12 15 28 42 43 60 4 117 98 110 116 255 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 208 33 249 228 18 96]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Requested IP Address (50)
+Length: 4
+Message Data: [192 168 1 22]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [2 64]
+Decoded Data: 576
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 8
+Message Data: [1 3 6 12 15 28 42 43]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 4
+Message Data: [117 98 110 116]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 824184391 | 0x31200e47
+SECS: 3 | 0x3
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: 0c:dc:91:78:15:e0
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 61 7 1 12 220 145 120 21 224 57 2 5 220 60 15 97 110 100 114 111 105 100 45 100 104 99 112 45 49 49 55 11 1 3 6 15 26 28 51 58 59 43 114 255 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 12 220 145 120 21 224]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [5 220]
+Decoded Data: 1500
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 15
+Message Data: [97 110 100 114 111 105 100 45 100 104 99 112 45 49 49]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 11
+Message Data: [1 3 6 15 26 28 51 58 59 43 114]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 824184391 | 0x31200e47
+SECS: 7 | 0x7
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: 0c:dc:91:78:15:e0
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 61 7 1 12 220 145 120 21 224 57 2 5 220 60 15 97 110 100 114 111 105 100 45 100 104 99 112 45 49 49 55 11 1 3 6 15 26 28 51 58 59 43 114 255 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 12 220 145 120 21 224]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [5 220]
+Decoded Data: 1500
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 15
+Message Data: [97 110 100 114 111 105 100 45 100 104 99 112 45 49 49]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 11
+Message Data: [1 3 6 15 26 28 51 58 59 43 114]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 824184391 | 0x31200e47
+SECS: 7 | 0x7
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: 0c:dc:91:78:15:e0
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 3 61 7 1 12 220 145 120 21 224 50 4 192 168 1 201 54 4 192 168 1 254 57 2 5 220 60 15 97 110 100 114 111 105 100 45 100 104 99 112 45 49 49 55 11 1 3 6 15 26 28 51 58 59 43 114 255 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [3]
+Decoded Data: DHCPREQUEST
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 12 220 145 120 21 224]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Requested IP Address (50)
+Length: 4
+Message Data: [192 168 1 201]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Server Identifier (54)
+Length: 4
+Message Data: [192 168 1 254]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [5 220]
+Decoded Data: 1500
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 15
+Message Data: [97 110 100 114 111 105 100 45 100 104 99 112 45 49 49]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 11
+Message Data: [1 3 6 15 26 28 51 58 59 43 114]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 1523359555 | 0x5acc9f43
+SECS: 65 | 0x41
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: d0:21:f9:e4:12:60
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 1 61 7 1 208 33 249 228 18 96 50 4 192 168 1 22 57 2 2 64 55 8 1 3 6 12 15 28 42 43 60 4 117 98 110 116 255 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [1]
+Decoded Data: DHCPDISCOVER
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 208 33 249 228 18 96]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Requested IP Address (50)
+Length: 4
+Message Data: [192 168 1 22]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [2 64]
+Decoded Data: 576
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 8
+Message Data: [1 3 6 12 15 28 42 43]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 4
+Message Data: [117 98 110 116]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
+Recieved message from [::]:68...
+==========PRINTING MESSAGE===========
+OP: BOOTREQUEST (1)
+HTYPE: Ethernet (1)
+HLEN: 6 | 0x6
+HOPS: 0 | 0x0
+XID: 1523359555 | 0x5acc9f43
+SECS: 65 | 0x41
+FLAGS: 0 | 0x0
+CIADDR: 0.0.0.0
+YIADDR: 0.0.0.0
+SIADDR: 0.0.0.0
+GIADDR: 0.0.0.0
+CHADDR: d0:21:f9:e4:12:60
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[99 130 83 99]
+[53 1 3 61 7 1 208 33 249 228 18 96 50 4 192 168 1 22 54 4 192 168 1 254 57 2 2 64 55 8 1 3 6 12 15 28 42 43 60 4 117 98 110 116 255 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Option 255. End Parsing!
+-------- Options Print --------
+    ------------
+Option: DHCP Message Type (53)
+Length: 1
+Message Data: [3]
+Decoded Data: DHCPREQUEST
+    ------------
+    ------------
+Option: Client-Identifier (61)
+Length: 7
+Message Data: [1 208 33 249 228 18 96]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Requested IP Address (50)
+Length: 4
+Message Data: [192 168 1 22]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Server Identifier (54)
+Length: 4
+Message Data: [192 168 1 254]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Maximum DHCP Message Size (57)
+Length: 2
+Message Data: [2 64]
+Decoded Data: 576
+    ------------
+    ------------
+Option: Parameter Request List (55)
+Length: 8
+Message Data: [1 3 6 12 15 28 42 43]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: Vendor Class Identifier (60)
+Length: 4
+Message Data: [117 98 110 116]
+Decoded Data: Not Implemented.
+    ------------
+    ------------
+Option: End Option (255)
+Length: 0
+Message Data: []
+Decoded Data: Not Implemented.
+    ------------
+--------   END   Print --------
+==========END MESSAGE===========
