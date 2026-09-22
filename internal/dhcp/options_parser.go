@@ -104,24 +104,20 @@ type DHCPOption struct {
 }
 
 func (option *DHCPOption) Print() {
-	fmt.Println("    ------------")
-	fmt.Printf("Option: %s (%d)\n", optionNames[int(option.code)], option.code)
-	fmt.Printf("Length: %d\n", option.length)
-
-	fmt.Print("Message Data: ")
+	fmt.Printf(" - Option: %s (%d)\n", optionNames[int(option.code)], option.code)
+	fmt.Printf("	Length: %d\n", option.length)
+	fmt.Print("	Message Data: ")
 	fmt.Print(option.data)
 	fmt.Print("\n")
-
-	fmt.Printf("Decoded Data: %s\n", string(parseOptionData(option)))
+	fmt.Printf("	Decoded Data: %s\n", string(parseOptionData(option)))
 	//parseOptionData(option)
-	fmt.Println("    ------------")
 }
 
 /**
 At some point, this func will need to return something, in order to prepare a DHCP response.
 */
 
-func OptionsParser(options []byte) {
+func OptionsParser(options []byte) []DHCPOption {
 
 	dhcp_options := []DHCPOption{}
 	for i := 0; i < len(options); i++ {
@@ -134,7 +130,7 @@ func OptionsParser(options []byte) {
 		}
 
 		if code == 255 {
-			fmt.Println("Option 255. End Parsing!")
+			//fmt.Println("Option 255. End Parsing!")
 			dhcp_options = append(dhcp_options, DHCPOption{code: 255, length: 0, data: []byte{}})
 			break
 		}
@@ -154,17 +150,18 @@ func OptionsParser(options []byte) {
 		i = end - 1
 	}
 
-	printParsedOptions(dhcp_options)
+	//printParsedOptions(dhcp_options)
+	return dhcp_options
 }
 
 func printParsedOptions(options []DHCPOption) {
-	fmt.Println("-------- Options Print --------")
+	//fmt.Println("-------- Options Print --------")
 	//option := DHCPOption{code: options[0], length: options[1], data: options[2:3]}
 	//option.Print()
 	for i := range options {
 		options[i].Print()
 	}
-	fmt.Println("--------   END   Print --------")
+	//fmt.Println("--------   END   Print --------")
 }
 
 func parseOptionData(option *DHCPOption) string {

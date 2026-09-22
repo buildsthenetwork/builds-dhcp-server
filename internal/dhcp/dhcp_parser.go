@@ -70,7 +70,8 @@ type Message struct {
 	File [128]byte
 	// options (variable number of bits)
 	MagicCookie [4]byte
-	Options     []byte
+	//Options     []byte
+	Options []DHCPOption
 }
 
 /*
@@ -96,8 +97,10 @@ func (m *Message) Print() {
 	fmt.Println(m.Sname)
 	fmt.Println(m.File)
 	fmt.Println(m.MagicCookie)
-	fmt.Println(m.Options)
-	OptionsParser(m.Options)
+	fmt.Println("Options: ")
+	//OptionsParser(m.Options)
+	printParsedOptions(m.Options)
+
 	fmt.Println("==========END MESSAGE===========")
 }
 
@@ -126,7 +129,8 @@ func GenerateMessage(recv []byte) Message {
 	copy(msg.Sname[:], recv[44:108])
 	copy(msg.File[:], recv[108:236])
 	copy(msg.MagicCookie[:], recv[236:240])
-	msg.Options = recv[240:] // This might be a copy by instance, not value
+	//msg.Options = recv[240:] // This might be a copy by instance, not value
+	msg.Options = OptionsParser(recv[240:])
 
 	return msg
 }
