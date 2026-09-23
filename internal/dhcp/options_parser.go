@@ -8,7 +8,7 @@ import (
 
 /*
 
-Options requirements are being built according to RFC 2132.
+Options requirements are being built according to various RFCs.
 
 https://www.rfc-editor.org/info/rfc2132/ --- DHCP Options
 https://datatracker.ietf.org/doc/html/rfc4361 --- Node-Specific Client Identifier for DHCPv4
@@ -98,19 +98,20 @@ var optionNames = map[int]string{
 }
 
 type DHCPOption struct {
-	code   uint8
-	length uint8
-	data   []byte
+	code uint8
+	data []byte
 }
 
 func (option *DHCPOption) Print() {
 	fmt.Printf(" - Option: %s (%d)\n", optionNames[int(option.code)], option.code)
-	fmt.Printf("	Length: %d\n", option.length)
+	fmt.Printf("	Length: %d\n", len(option.data))
 	fmt.Print("	Option Data: ")
 	fmt.Print(option.data)
 	fmt.Print("\n")
 	fmt.Printf("	Decoded Data: %s\n", string(parseOptionData(option)))
-	//parseOptionData(option)
+	fmt.Print("	Marshalled Data: ")
+	fmt.Print(option.Marshal())
+	fmt.Print("\n")
 }
 
 func OptionsParser(options []byte) []DHCPOption {
@@ -127,7 +128,7 @@ func OptionsParser(options []byte) []DHCPOption {
 
 		if code == 255 {
 			//fmt.Println("Option 255. End Parsing!")
-			dhcp_options = append(dhcp_options, DHCPOption{code: 255, length: 0, data: []byte{}})
+			dhcp_options = append(dhcp_options, DHCPOption{code: 255, data: []byte{}})
 			break
 		}
 
@@ -137,27 +138,22 @@ func OptionsParser(options []byte) []DHCPOption {
 		}
 
 		length := int(options[i+1])
-		start := i                // inclusive
-		end := start + length + 2 // exclusive. At end of loop, i will equal the end
+		start := i + 2        // inclusive
+		end := start + length // exclusive. At end of loop, i will equal the end
 
 		// the options[start:end] slice can potentially get messy. Look for a different way.
-		option := DHCPOption{code: code, length: uint8(length), data: options[start:end]}
+		option := DHCPOption{code: code, data: options[start:end]}
 		dhcp_options = append(dhcp_options, option)
 		i = end - 1
 	}
 
-	//printParsedOptions(dhcp_options)
 	return dhcp_options
 }
 
 func printParsedOptions(options []DHCPOption) {
-	//fmt.Println("-------- Options Print --------")
-	//option := DHCPOption{code: options[0], length: options[1], data: options[2:3]}
-	//option.Print()
 	for i := range options {
 		options[i].Print()
 	}
-	//fmt.Println("--------   END   Print --------")
 }
 
 func parseOptionData(option *DHCPOption) string {
@@ -170,7 +166,6 @@ func parseOptionData(option *DHCPOption) string {
 	case 255:
 		return "End of Options."
 	default:
-		//fmt.Printf("--Option %d not implemented.\n", option.code)
 		return "Not Implemented."
 	}
 }
@@ -194,18 +189,29 @@ var option53MessageTypes = map[int]string{
 }
 
 func option53(data []byte) string {
-	msg_type := data[2]
-	//msg_str := "Message Type: " + string(option53MessageTypes[int(msg_type)])
-
-	//fmt.Println(msg_str)
+	msg_type := data[0]
 	return string(option53MessageTypes[int(msg_type)])
 }
 
 // OPTION 57 - Maximum DHCP Message Size
 // Length is always 2
 func option57(data []byte) int {
-	size := int(binary.BigEndian.Uint16(data[2:4]))
-
-	// fmt.Println(size)
+	size := int(binary.BigEndian.Uint16(data[0:2]))
 	return size
+}
+
+///////////////////////////
+
+func (o *DHCPOption) Marshal() []byte {
+	if o.code == 255 {
+		return []byte{255}
+	}
+
+	buf := make([]byte, 0, len(o.data)+2)
+
+	buf = append(buf, o.code)
+	buf = append(buf, byte(len(o.data)))
+	buf = append(buf, o.data...)
+
+	return buf
 }
