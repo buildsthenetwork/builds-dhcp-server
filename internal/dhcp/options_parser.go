@@ -94,6 +94,16 @@ var optionNames = map[int]string{
 	75: "StreetTalk Server",
 	76: "StreetTalk Directory Assistance (STDA) Server",
 
+	114: "DHCP Captive-Portal",
+
+	119: "Domain Search",
+
+	121: "Classless Static Route",
+
+	249: "Private/Classless Static Route (Microsoft)",
+
+	252: "Private/Proxy Autodiscovery",
+
 	255: "End Option",
 }
 
